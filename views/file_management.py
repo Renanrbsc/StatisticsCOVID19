@@ -14,25 +14,19 @@ class ManagerFile:
 
     def choice_a_filename(self) -> None:
         # date = input('Insert a date from daily reports: ')
-        self.filename_daily_report = f"{self.BASE_URL}{self.CONFIRMED}"
+        self.filename = f"{self.BASE_URL}{self.CONFIRMED}"
 
     def load_file_csv(self) -> None:
-        url = f"{self.filename_daily_report}"
+        url = f"{self.filename}"
 
         with closing(requests.get(url, stream=True)) as r:
             csvfile = r.iter_lines()
-
-            self.fields = next(csvfile) 
+            self.fields = str(next(csvfile)).split(',')
             next(csvfile) 
-
             for row in csvfile:
-                self.rows.append(row)  
-                print(row)  
-
+                data_row = str(row).replace("b'",'')
+                self.rows.append(data_row)  
         # get total number of rows 
-        print(f"Total number of rows: {csvfile.line_num}") 
+        print(f"Total number of rows: {len(self.rows)}") 
 
-c = ManagerFile()
-c.choice_a_filename()
-c.load_file_csv()
 
