@@ -1,35 +1,28 @@
 import matplotlib.pyplot
-from Process.file_management import ManagerFile
+from Process.data_processing import DataProcess
 
-class RequestsDataFile:
+class Methods:
     def __init__(self):
-        self._manager_file = ManagerFile()
+        self._dpross = DataProcess()
 
-    def search_name_country(self) -> None:
+
+    def search_name_country(self, fields: list, rows: list) -> None:
         name_country = input('Search name of country: ')
 
-        for row in self._manager_file.rows: 
+        for row in rows: 
             if name_country in row:
                 # parsing each column of a row 
-                for index, value in enumerate(self._manager_file.fields):
+                for index, value in enumerate(fields):
                     print(f"{value}: {row[index]} ") 
-                self.simple_graphic(row)
+                self.simple_graphic(fields, row)
                 return 
 
 
-    def simple_graphic(self, row: list):
-        date = self._manager_file.fields[4:]        
-        daily_cases = row[4:]
+    def simple_graphic(self, fields: list, row: list):
+        header_field, date_field = self._dpross.remove_header_from_list(fields)     
+        header_row, date_row = self._dpross.remove_header_from_list(row)   
 
-        case = []
-        for i in daily_cases:
-            daily = int(i)
-            case.append(daily)
+        date_int = self._dpross.converts_data_to_integers(date_row)
 
-
-        matplotlib.pyplot.plot(date, daily_cases)
+        matplotlib.pyplot.plot(date_field, date_int)
         matplotlib.pyplot.show()
-
-datafile = RequestsDataFile()
-datafile.loading_manager_methods()
-datafile.search_name_country()

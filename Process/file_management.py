@@ -31,11 +31,14 @@ class ManagerFile:
                     data_row = self._dpross.replace_characters(data_row, "'", '')
                     list_data_row = self._dpross.convert_string_to_list(data_row)
                     self.rows.append(list_data_row)  
-                    
                 self.fields = self.rows.pop(0)
+
+                return self.fields, self.rows
+
         except MissingSchema:
             print("HTTP link appears to be broken!")
-            return 
+            return
+            
         finally:
             # get total number of rows 
             print(f"Total number of rows: {len(self.rows)}") 

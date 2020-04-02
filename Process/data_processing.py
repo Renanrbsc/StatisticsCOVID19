@@ -13,3 +13,16 @@ class DataProcess:
                                  old: str, new: str) -> str:
         new_data = str(data).replace(old, new)
         return new_data
+
+    def remove_header_from_list(self, data: list) -> tuple:
+        header = data[:4]
+        date = data[4:]
+
+        return header, date
+
+    def converts_data_to_integers(self, data: list):
+        list_data = []
+        for index in data:
+            new_data = int(index)
+            list_data.append(new_data)
+        return list_data
