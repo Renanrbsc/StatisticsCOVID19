@@ -22,7 +22,18 @@ class Methods:
         header_field, date_field = self._dpross.remove_header_from_list(fields)     
         header_row, date_row = self._dpross.remove_header_from_list(row)   
 
-        date_int = self._dpross.converts_data_to_integers(date_row)
+        dates = ['1','2','3','4']
+        month_date = []
+        month_cases = []
+        for index, date in enumerate(date_field):
+            if date[0] == dates[0]:
+                month_date.append(date)
+                month_cases.append(date_row[index])
 
-        matplotlib.pyplot.plot(date_field, date_int)
+        date_int = self._dpross.converts_data_to_integers(month_cases)
+
+        matplotlib.pyplot.plot(month_date, date_int)
+        matplotlib.pyplot.xlabel('Dias do mes')
+        matplotlib.pyplot.ylabel('Casos contabilizados')
+
         matplotlib.pyplot.show()
