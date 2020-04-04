@@ -26,3 +26,18 @@ class DataProcess:
             new_data = int(index)
             list_data.append(new_data)
         return list_data
+
+    def create_months_list(self, date_row: list, date_field: list) -> tuple:
+        dates = ['1','2','3','4']
+        months_dates = []
+        months_cases = []
+        for index_number, index_month in enumerate(dates):
+            month_date = []
+            month_case = []      
+            for index, date in enumerate(date_field):
+                if date[0] == index_month:
+                    month_date.append(date)
+                    month_case.append(date_row[index])
+            months_dates.append(month_date)
+            months_cases.append(month_case)
+        return months_dates, months_cases
