@@ -13,7 +13,12 @@ class RequestsDataFile:
         fields, rows = self._manager_file.load_file_csv()
         self._methods.search_name_country(fields, rows)
 
+    def loading_top_five_cases(self):
+        fields, rows = self._manager_file.load_file_csv()
+        self._methods.top_five_biggest_cases(fields, rows)
+
 if __name__ == "__main__":
     datafile = RequestsDataFile()
     datafile.loading_manager_methods()
-    datafile.loadind_methods()
+    # datafile.loadind_methods()
+    datafile.loading_top_five_cases()
