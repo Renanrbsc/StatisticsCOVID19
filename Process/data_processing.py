@@ -15,17 +15,25 @@ class DataProcess:
         return new_data
 
     def remove_header_from_list(self, data: list) -> tuple:
-        header = data[:4]
-        date = data[4:]
+        header = data[:5]
+        date = data[5:]
 
         return header, date
 
-    def converts_data_to_integers(self, data: list):
+    def converts_data_to_integers(self, data: list or str) -> list or int:
         list_data = []
-        for index in data:
-            new_data = int(index)
-            list_data.append(new_data)
-        return list_data
+        if isinstance(data, list):     
+            for index in data:
+                if '.' in index:
+                    index = float(index)
+                new_data = int(index)
+                list_data.append(new_data)
+            return list_data
+        else:
+            if '.' in data:
+                data = float(data)
+            data = int(data)
+            return data
 
     def create_months_list(self, date_row: list, date_field: list) -> tuple:
         dates = ['1','2','3','4']
