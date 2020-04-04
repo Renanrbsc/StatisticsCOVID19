@@ -29,6 +29,7 @@ class ManagerFile:
                 for row in csvfile:
                     data_row = self._dpross.replace_characters(row, "b'", '')
                     data_row = self._dpross.replace_characters(data_row, "'", '')
+                    data_row = self._dpross.replace_characters(data_row, '"', '')
                     list_data_row = self._dpross.convert_string_to_list(data_row)
                     self.rows.append(list_data_row)  
                 self.fields = self.rows.pop(0)
