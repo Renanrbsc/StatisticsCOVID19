@@ -1,5 +1,5 @@
-from Process.file_management import ManagerFile
-from Process.methods import Methods
+from Model.file_management import ManagerFile
+from Model.methods import Methods
 
 class RequestsDataFile:
     def __init__(self):
