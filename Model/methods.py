@@ -9,18 +9,18 @@ class Methods:
     def search_name_country(self, fields: list, rows: list) -> None:
         name_country = input('Search name of country: ')
 
-        for row in rows: 
+        for row in rows:
             if name_country in row:
-                # parsing each column of a row 
+                # parsing each column of a row
                 for index, value in enumerate(fields):
-                    print(f"{value}: {row[index]} ") 
+                    print(f"{value}: {row[index]} ")
                 self.simple_graphic(fields, row)
-                return 
+                return
 
     def top_five_biggest_cases(self, fields: list, rows: list) -> None:
         print(f'Top 5 biggest cases')
         list_total_cases = []
-        for row in rows: 
+        for row in rows:
             header_row, cases = self._dpross.remove_header_from_list(row)
             last_case = cases.pop(-1)
             cases_int = self._dpross.converts_data_to_integers(last_case)
@@ -32,22 +32,22 @@ class Methods:
             list_top_five.append(list_total_cases[index])
 
         for index, row in enumerate(list_top_five):
-            print(f"Top{index+1}: {row[1][1]} ") 
+            print(f"Top{index+1}: {row[1][1]} ")
 
         for row in list_top_five:
             print('\n')
             for index, value in enumerate(fields):
-                print(f"{value}: {row[1][index]} ") 
+                print(f"{value}: {row[1][index]} ")
             self.simple_graphic(fields, row[1])
-                 
 
-            
-               
+
+
+
 
 
     def simple_graphic(self, fields: list, row: list):
-        header_field, date_field = self._dpross.remove_header_from_list(fields)     
-        header_row, date_row = self._dpross.remove_header_from_list(row)   
+        header_field, date_field = self._dpross.remove_header_from_list(fields)
+        header_row, date_row = self._dpross.remove_header_from_list(row)
         months_dates, months_cases = self._dpross.create_months_list(date_row, date_field)
         months = ['Janeiro','Fevereiro','Março','Abril']
         for index, value in enumerate(months):

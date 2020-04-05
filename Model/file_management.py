@@ -33,7 +33,7 @@ class ManagerFile:
                     list_data_row = self._dpross.convert_string_to_list(data_row)
                     self.rows.append(list_data_row)  
                 self.fields = self.rows.pop(0)
-
+                
                 return self.fields, self.rows
 
         except MissingSchema:
