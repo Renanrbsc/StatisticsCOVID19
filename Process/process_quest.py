@@ -1,3 +1,6 @@
+from Model.methods import Methods
+from Services.database.methods import Database
+
 class StatisticsSearch:
     def __init__(self):
         self._methods = Methods()
