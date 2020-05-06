@@ -1,5 +1,5 @@
-from Model.methods import Methods
-from Services.database.methods import Database
+from app.Model.methods import Methods
+from app.Services.database.methods import Database
 
 class StatisticsSearch:
     def __init__(self):
@@ -9,11 +9,12 @@ class StatisticsSearch:
     def method_menu(self):
         fields, rows = self._db.load_data()
 
-        print(" 1 - Search by country name\n" \
+        print("-------- Search methods -----------\n" \
+              " 1 - Search by country name\n" \
               " 2 - Search for the top 5\n")
         option = int(input('Enter the desired method:'))
 
-        if option is 1:
-            self._methods.country_name_search(fields, rows)
-        elif option is 2:
+        if option == 1:
+            self._methods.search_name_country(fields, rows)
+        elif option == 2:
             self._methods.top_five_biggest_cases(fields, rows)

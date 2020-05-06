@@ -1,7 +1,7 @@
 import requests
 from contextlib import closing
-from Treatment.data_processing import DataProcess
 from requests.exceptions import MissingSchema
+from app.Treatment.data_processing import DataProcess
 
 
 class ManagerFile:

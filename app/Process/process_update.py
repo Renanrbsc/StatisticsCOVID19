@@ -1,5 +1,5 @@
-from Model.file_management import ManagerFile
-from Services.database.methods import Database
+from app.Model.file_management import ManagerFile
+from app.Services.database.methods import Database
 
 class RequestsDataFile:
     def __init__(self):
