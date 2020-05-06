@@ -7,10 +7,14 @@ class Startup:
         self.search = StatisticsSearch()
 
     def initial_menu(self):
-        print(" 1 - Update statistics data fom the system\n" \
+        print(" 1 - Update statistics data from the system\n" \
               " 2 - Search methods in updated data\n")
         option = int(input('Enter the desired action for the system: '))
-        if option is 1:
+        if option == 1:
             self.datafile.update_database_data()
         else:
             self.search.method_menu()
+
+if __name__ == "__main__":
+    a = Startup()
+    a.initial_menu()

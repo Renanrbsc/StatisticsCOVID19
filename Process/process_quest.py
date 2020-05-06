@@ -13,7 +13,7 @@ class StatisticsSearch:
               " 2 - Search for the top 5\n")
         option = int(input('Enter the desired method:'))
 
-        if option is 1:
+        if option == 1:
             self._methods.country_name_search(fields, rows)
-        elif option is 2:
+        elif option == 2:
             self._methods.top_five_biggest_cases(fields, rows)
