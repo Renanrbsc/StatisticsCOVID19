@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from Data.data_processing import DataProcess
+from Treatment.data_processing import DataProcess
 
 class Methods:
     def __init__(self):

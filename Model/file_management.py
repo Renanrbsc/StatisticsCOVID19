@@ -1,6 +1,6 @@
 import requests
 from contextlib import closing
-from Data.data_processing import DataProcess
+from Treatment.data_processing import DataProcess
 from requests.exceptions import MissingSchema
 
 
