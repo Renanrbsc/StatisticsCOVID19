@@ -11,17 +11,19 @@ class ManagerFile:
     RECOVERED = 'time_series_covid19_recovered_global.csv'
     
     def __init__(self):
-        self.filenames = dict()
+        self._dpross = DataProcess()
         self.data_csv = list()
         self.rows = [] 
         self.fields = [] 
-        self._dpross = DataProcess()
+        self.filenames = {'confirmed':str(),
+                          'death':str(),
+                          'recovered':str()
+                          }
 
     def build_update_access(self) -> None:
-        self.filenames = {'confirmed':f"{self.BASE_URL}{self.CONFIRMED}",
-                          'death':f"{self.BASE_URL}{self.DEATH}",
-                          'recovered':f"{self.BASE_URL}{self.RECOVERED}"
-                          }
+        self.filenames['confirmed'] = f"{self.BASE_URL}{self.CONFIRMED}"
+        self.filenames['death'] = f"{self.BASE_URL}{self.DEATH}"
+        self.filenames['recovered'] = f"{self.BASE_URL}{self.RECOVERED}"
 
     def load_file_csv(self) -> None:
         for filename in self.filenames:    
