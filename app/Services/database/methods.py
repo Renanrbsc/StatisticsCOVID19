@@ -4,12 +4,17 @@ class Database:
         self.fields = []
         self.rows = []
 
-    def save_data(self, fields, rows):
-        with open(f'app\Services\{self.name_archive}.txt','w') as arc:
-            arc.write(','.join(fields)+'\n')
-            for row in rows:
-                arc.write(','.join(row)+'\n')
-        print("Data updated successfully!")
+    def save_data(self, data_csv_for_update):
+        for filename in data_csv_for_update:
+            fields = filename[0]
+            rows = filename[1] 
+            name_archive = filename[2]
+
+            with open(f"app\Services\{name_archive}.txt",'w') as arc:
+                arc.write(','.join(fields)+'\n')
+                for row in rows:
+                    arc.write(','.join(row)+'\n')
+            print(f"{name_archive.capitalize()} data updated successfully!")
 
 
     def load_data(self):
