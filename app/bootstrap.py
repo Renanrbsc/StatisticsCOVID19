@@ -14,5 +14,6 @@ class Startup:
         if option == 1:
             self.datafile.update_database_data()
         else:
+            self.search.choose_type_archive()
             self.search.method_menu()
 
