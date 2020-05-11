@@ -7,7 +7,7 @@ class Startup:
         self.search = StatisticsSearch()
 
     def initial_menu(self):
-        print("--------- Confirmed data system ------------\n" \
+        print("--------- Sars-Cov-2 data analysis system ------------\n" \
               " 1 - Update statistics data from the system\n" \
               " 2 - Search methods in updated data\n")
         option = int(input('Enter the desired action for the system: '))
