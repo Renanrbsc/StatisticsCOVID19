@@ -7,8 +7,8 @@ class RequestsDataFile:
         self._db = Database()
         
     def update_database_data(self):
-        self._manager_file.choice_a_filename()
+        self._manager_file.build_update_access()
 
-        fields, rows = self._manager_file.load_file_csv()
-        self._db.save_data(fields, rows)
+        data_csv_for_update = self._manager_file.load_file_csv()
+        self._db.save_data(data_csv_for_update)
         
