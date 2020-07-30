@@ -33,7 +33,7 @@ class DataProcess:
             return data
 
     def create_months_list(self, date_row: list, date_field: list) -> tuple:
-        dates = ['1','2','3','4','5']
+        dates = ['1','2','3','4','5','6','7']
         months_dates = []
         months_cases = []
         for index_number, index_month in enumerate(dates):
